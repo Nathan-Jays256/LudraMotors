@@ -67,6 +67,7 @@ Route::get('/manage-subscribers', [AdminController::class, 'getManageSubscribers
 Route::get('/approve-booking/{id}', [AdminController::class, 'postApproveBooking']);
 Route::get('/disapprove-booking/{id}', [AdminController::class, 'postDispproveBooking']);
 Route::get('/confirm-payment/{id}', [AdminController::class, 'postConfirmPayment']);
+Route::get('/delete-payment/{id}', [AdminController::class, 'getDeletePayment']);
 Route::get('/admin', [AdminController::class, 'getAdminLogin']);
 Route::get('/change-password', [AdminController::class, 'getChangePassword']);
 

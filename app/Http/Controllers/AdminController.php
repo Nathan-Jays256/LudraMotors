@@ -113,6 +113,17 @@ class AdminController extends Controller
         $payments = Payment::all();
         return view('Admin.managepayments',['payments'=>$payments]);
     }
+    function getDeletePayment($id)
+    { 
+        $pay = Payment::Find($id);
+        $pay->delete();
+        $notification = array(
+            'message' => 'Payment deleted', 
+            'alert-type' => 'warning'
+        );
+        return redirect()-> back()->with($notification);
+    }
+    
     
     function getRegUsers()
     {     

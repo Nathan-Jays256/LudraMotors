@@ -46,7 +46,7 @@
 													@endif
 													<th>{{$payment->created_at}}</th>
 													<th>
-														<a href="">Delete</a> 
+														<a href="/delete-payment/{{$payment->paymentId}}">Delete</a> 
 														
 														@if($payment->status==true)
 														@else
