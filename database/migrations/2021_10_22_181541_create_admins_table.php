@@ -20,7 +20,8 @@ class CreateAdminsTable extends Migration
             $table->timestamps();
         });
         DB::table('admins')->insert([
-            ['username' => 'admin', 'password' => 'admin@123'], 
+            'username' => 'admin',
+             'password' => 'admin@123', 
         ]);
     }
 
