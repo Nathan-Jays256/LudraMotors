@@ -334,9 +334,9 @@ class HomeController extends Controller
         $payment->status = false;
         // dd($payment);
         $payment->save();
-        $booking = new Booking();
+        $booking = Booking::Find($req['bookid']);
         $booking->duration = true;
-        $booking->update();
+        $booking->save();
         $notification = array(
             'message' => 'Payments made successfully', 
             'alert-type' => 'success'
