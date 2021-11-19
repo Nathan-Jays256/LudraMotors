@@ -19,6 +19,11 @@ class CreateAdminsTable extends Migration
             $table->string('password')->nullable();
             $table->timestamps();
         });
+        DB::table('admins')->insert([
+            ['name' => '1', 'public' => true],
+            ['username' => 'admin', 'public' => true],
+            ['password' => 'admin@123', 'public' => true],
+        ]);
     }
 
     /**
