@@ -341,7 +341,7 @@ class HomeController extends Controller
             'message' => 'Payments made successfully', 
             'alert-type' => 'success'
         );
-        return redirect()->back()->with($notification);
+        return redirect('/my-bookings')->with($notification);
     }
     
 
