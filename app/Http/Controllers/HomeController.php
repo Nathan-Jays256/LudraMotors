@@ -288,6 +288,7 @@ class HomeController extends Controller
             $booking->bookingDate = $req['fromdate'];
             $booking->returnDate = $req['todate'];
             $booking->status = false;
+            $booking->duration = false;
             $booking->message = $req['message'];
             $booking->save();
             $notification = array(
