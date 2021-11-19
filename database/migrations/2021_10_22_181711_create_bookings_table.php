@@ -23,6 +23,7 @@ class CreateBookingsTable extends Migration
             $table->string('returnDate');
             $table->string('message')->nullable();
             $table->boolean('status')->nullable();
+            $table->boolean('duration')->nullable();
             $table->timestamps();
             $table->foreign('VehicleId')->references('VehicleId')->on('vehicles')->onDelete('cascade');;
             $table->foreign('user_userId')->references('userId')->on('users')->onDelete('cascade');;

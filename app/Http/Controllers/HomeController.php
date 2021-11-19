@@ -101,7 +101,10 @@ class HomeController extends Controller
             ->join('vehicles', 'bookings.VehicleId', '=', 'vehicles.VehicleId')
             ->join('users', 'users.userId', '=', 'bookings.user_userId')
             ->select('vehicles.*','bookings.*','users.*')
-            ->where('bookings.user_userId',$user_Id)->get();
+            ->where([
+                'bookings.user_userId'=>$user_Id,
+                'bookings.duration'=> false
+            ])->get();
             $bookings->transform(function($i) {
                 return (array)$i;
             });
@@ -137,6 +140,7 @@ class HomeController extends Controller
             ->select('vehicles.*','bookings.*','users.*')
             ->where([
                 'bookings.status'=>true,
+                'bookings.duration'=>false,
                 'bookings.user_userId'=>$user_Id,
 
 
@@ -329,6 +333,9 @@ class HomeController extends Controller
         $payment->status = false;
         // dd($payment);
         $payment->save();
+        $booking = new Booking();
+        $booking->duration = true;
+        $booking->save();
         $notification = array(
             'message' => 'Payments made successfully', 
             'alert-type' => 'success'
