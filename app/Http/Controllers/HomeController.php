@@ -336,7 +336,7 @@ class HomeController extends Controller
         $payment->save();
         $booking = new Booking();
         $booking->duration = true;
-        $booking->save();
+        $booking->update();
         $notification = array(
             'message' => 'Payments made successfully', 
             'alert-type' => 'success'
